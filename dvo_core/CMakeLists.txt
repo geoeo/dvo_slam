@@ -4,9 +4,9 @@ project(dvo_core)
 
 find_package(catkin REQUIRED COMPONENTS cv_bridge)
 find_package(cmake_modules REQUIRED)
-find_package(PCL REQUIRED COMPONENTS common filters)
+find_package(PCL 1.8.1 REQUIRED COMPONENTS common filters)
 find_package(Eigen3 REQUIRED)
-find_package(sophus REQUIRED)
+find_package(Sophus REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread)
 #find_package(OpenCV 3 REQUIRED)
 find_package(TBB REQUIRED)
@@ -17,7 +17,7 @@ catkin_package(
   DEPENDS OpenCV PCL
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3 -msse4 -ftree-vectorize")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3 -msse4 -ftree-vectorize -std=c++11")
 
 include_directories(
   "include"

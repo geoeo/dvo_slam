@@ -4,13 +4,18 @@ project(dvo_benchmark)
 
 LIST(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake_modules")
 
-find_package(catkin REQUIRED COMPONENTS roscpp dvo_core dvo_ros dvo_slam cv_bridge)
+#find_package(catkin REQUIRED COMPONENTS roscpp dvo_core dvo_ros dvo_slam cv_bridge)
+find_package(catkin REQUIRED COMPONENTS roscpp dvo_core dvo_ros cv_bridge)
 find_package(cmake_modules REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(G2O REQUIRED)
+find_package(VTK REQUIRED)
+#find_package(PCL 1.8 EXACT REQUIRED PATHS /usr/local/include/pcl-1.8)
 #find_package(OpenCV REQUIRED)
 
-LIST(APPEND CMAKE_CXX_FLAGS "-std=c++11")
+LIST(APPEND CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 catkin_package(
   INCLUDE_DIRS include
@@ -22,7 +27,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
   ${G2O_INCLUDE_DIR}
+  ${VTK_INCLUDE_DIR}
 )
+
+#add_executable(benchmark
+#     src/benchmark.cpp
+#)
 
 
 add_executable(benchmark
