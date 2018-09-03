@@ -4,7 +4,7 @@ project(dvo_core)
 
 find_package(catkin REQUIRED COMPONENTS cv_bridge)
 find_package(cmake_modules REQUIRED)
-find_package(PCL 1.8.1 REQUIRED COMPONENTS common filters)
+find_package(PCL REQUIRED COMPONENTS common filters)
 find_package(Eigen3 REQUIRED)
 find_package(Sophus REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread)
